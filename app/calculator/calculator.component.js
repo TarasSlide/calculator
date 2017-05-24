@@ -3,7 +3,7 @@
 // Register `calculator` component, along with its associated controller and template
 
 angular.module('calculator').component('calculator', {
-    templateUrl: '/app/calculator/calculator.template.html',
+    templateUrl: 'calculator/calculator.template.html',
     controller: ['$http', function CalculatorController($http) {
 
         var self = this;
