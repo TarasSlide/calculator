@@ -1,0 +1,59 @@
+.container
+    .row.wrapper
+        .col-sm-6.col-sm-offset-2
+            .calc-wrap
+                .screen
+                    .calc-expression(ng-model='expression') {{ $ctrl.expression }}
+                    .calc-result(ng-model='result') {{ $ctrl.result }}
+                    div {{$ctrl.currMod}}
+                    .currency(ng-repeat="c in $ctrl.rates track by $index")
+                        button.btn.transparent-sm-btn.curr-btn(type="button" ng-click="$ctrl.updateCurrentCurrency(c.ccy)")
+                            span {{ c.ccy }} {{ $ctrl.convert($ctrl.currMod, c.ccy, $ctrl.result) }}
+                .row
+                    .col-xs-12.text-center
+                        .row
+                            .col-xs-12
+                                button.btn.btn-memory.clear(type='button' ng-click='$ctrl.clear()') C
+                                button.btn.btn-memory(type='button' ng-click="$ctrl.memoryClear()") MC
+                                button.btn.btn-memory(type='button' ng-click="$ctrl.memoryRecall()") MR
+                                button.btn.btn-memory(type='button' ng-click="$ctrl.memoryAdd()") M+
+                                button.btn.btn-memory(type='button' ng-click="$ctrl.memorySubtract()") M-
+                                button.btn.btn-memory(type='button' ng-click="$ctrl.memoryStore()") MS
+
+                        .main-btns-wrap
+                            .row
+                                .col-xs-12
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.digit('7')") 7
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.digit('8')") 8
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.digit('9')") 9
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.operate('/')") /
+                            .row
+                                .col-xs-12
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.digit('4')") 4
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.digit('5')") 5
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.digit('6')") 6
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.operate('*')") *
+                            .row
+                                .col-xs-12
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.digit('1')") 1
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.digit('2')") 2
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.digit('3')") 3
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.operate('-')") -
+                            .row
+                                .col-xs-12
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.digit('0')") 0
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.digit('.')") .
+                                    button.btn.btn-calc.blue-bg-hover(type='button' ng-click="$ctrl.calcResult()") =
+                                    button.btn.btn-calc(type='button' ng-click="$ctrl.operate('+')") +
+        .col-sm-3
+            exchange-rates(exchange-rates-data="$ctrl.rates")
+            .memory-wrap
+                h3 Memory:
+                div(ng-show="$ctrl.memoryArray.length == 0") Empty
+                .memory(ng-repeat="m in $ctrl.memoryArray track by $index")
+                    div.memory-item(ng-click="$ctrl.result = $ctrl.memoryArray[$index]") {{m}}
+                    button.btn.transparent-sm-btn(type='button' ng-click="$ctrl.memoryClearItem($index, $ctrl.memoryArray)") MC
+                    button.btn.transparent-sm-btn(type='button' ng-click="$ctrl.addToMemoryItem($index, $ctrl.memoryArray, +$ctrl.result)") M+
+                    button.btn.transparent-sm-btn(type='button' ng-click="$ctrl.subtractToMemoryItem($index, $ctrl.memoryArray, +$ctrl.result)") M-
+
+

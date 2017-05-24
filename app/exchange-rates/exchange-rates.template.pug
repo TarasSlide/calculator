@@ -1,0 +1,9 @@
+table.table.table-bordered
+    tr
+        th Currency
+        th Buy
+        th Sale
+    tr(ng-repeat="rate in $ctrl.exchangeRatesData" ng-if="rate.ccy != 'UAH'")
+        td {{rate.ccy}}
+        td {{rate.buy | roundNumber}}
+        td {{rate.sale | roundNumber}}

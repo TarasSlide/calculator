@@ -1,0 +1,1 @@
+<table class="table table-bordered"><tr><th>Currency</th><th>Buy</th><th>Sale</th></tr><tr ng-repeat="rate in $ctrl.exchangeRatesData" ng-if="rate.ccy != 'UAH'"><td>{{rate.ccy}}</td><td>{{rate.buy | roundNumber}}</td><td>{{rate.sale | roundNumber}}</td></tr></table>

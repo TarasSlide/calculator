@@ -1,0 +1,11 @@
+{
+  "name": "calculator",
+  "dependencies": {
+    "angular": "1.6.4",
+    "components-font-awesome": "4.7.0",
+    "bootstrap-sass": "3.3.7"
+  },
+  "resolutions": {
+    "angular": "1.6.4"
+  }
+}

@@ -1,0 +1,123 @@
+@import "variables";
+
+.btn:focus, .btn:active:focus, .btn.active:focus,
+.btn.focus, .btn:active.focus, .btn.active.focus {
+  outline: none;
+  box-shadow: none;
+}
+
+* {
+  &:focus, &:active {
+    outline: none;
+  }
+}
+
+.wrapper {
+  margin-top: 30px;
+}
+
+.calc-wrap {
+  border: 1px solid $light-gray;
+}
+
+.btn-calc {
+  width: 25%;
+  line-height: 90px;
+  border-radius: 0;
+  font-size: 35px;
+  transition: background-color .3s linear;
+  outline: none;
+  background-color: lighten($light-gray, 9%);
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: lighten($light-gray, 2%);
+  }
+}
+
+.main-btns-wrap {
+  background-color: lighten($light-gray, 9%);
+}
+
+.btn-memory {
+  width: 16.666666%;
+  background-color: transparent;
+  margin: 0;
+  border-radius: 0;
+  transition: background-color .3s linear;
+  &:hover {
+    background-color: lighten($light-gray, 2%);
+  }
+}
+
+.calc-operator {
+  background-color: #f2fcff;
+  &:hover {
+    background-color: #e5eff2;
+  }
+}
+
+.screen {
+  padding: 20px 10px;
+  text-align: right;
+  position: relative;
+  border-bottom: 1px solid $light-gray;
+}
+
+.calc-expression {
+  font-size: 16px;
+  min-height: 26px;
+}
+
+.calc-result {
+  font-size: 30px;
+}
+
+.clear {
+  &:hover {
+    background-color: $brand-danger;
+    color: #fff;
+  }
+}
+
+.blue-bg-hover {
+  &:hover {
+    background-color: $blue;
+    color: #fff;
+  }
+}
+
+.memory {
+  text-align: right;
+  &:hover {
+    background-color: lighten($light-gray, 9%);
+  }
+}
+
+.memory-item {
+  text-align: right;
+  font-size: 24px;
+}
+
+.transparent-sm-btn {
+  background-color: transparent;
+  border-radius: 0;
+  color: $blue;
+  font-weight: bold;
+  margin-right: 15px;
+  border: none;
+  &:hover {
+    background-color: lighten($light-gray, 2%);
+  }
+}
+
+.currency {
+  text-align: left;
+}
+
+.curr-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
